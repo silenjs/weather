@@ -1,0 +1,90 @@
+@charset "utf-8";
+*{padding:0; margin:0;}
+html, body {height: 100%; background: #45c7c9;}
+html, body {font: 20px/1.5 "Helvetica Neue", Helvetica, Microsoft Yahei, STHeiTi, sans-serif; color:#fff;}
+
+@font-face {font-family: 'weather';
+    src: url('/font/weather.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('/font/weather.woff') format('woff'), /* chrome、firefox */
+    url('/font/weather.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('/font/weather.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.today {padding: 50px 0; font-size: 0.8rem; color: #cef2f2; text-align: center; letter-spacing: 2px;}
+.today strong {display: block; font-size: 1.5rem; color: #fee241; line-height: 2;}
+
+.ico {display: inline-block; color: #fff; font-style: normal; font-family: "weather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+.ico_sun:before {content: "\e600";}
+.ico_cloudy:before {content: "\e609";}
+.ico_day_cloudy:before {content: "\e605";}
+.ico_night_cloudy:before {content: "\e602";}
+.ico_rain_s:before {content: "\e601";}
+.ico_rain_m:before {content: "\e604";}
+.ico_rain_h:before {content: "\e603";}
+.ico_thunder:before {content: "\e606";}
+.ico_thunder_rain:before {content: "\e607";}
+.ico_thunder_rain_h:before {content: "\e608";}
+
+.today_weather {margin-bottom: 50px; line-height: 1.1; text-align: center;}
+.today_weather .ico {width: 100%; height: 200px; font-size: 180px; text-align: center;}
+
+.future {position: relative; display:-webkit-box; display:box; padding: 0 0 10px; margin: 0 10px;}
+.future dl {position: relative; box-flex: 1; -webkit-box-flex:1; height: 210px; text-align: center;}
+.future dt {font-size: 0.6rem;}
+.future span {position: absolute; left: 0; bottom: 0; width: 100%; font-size: 0.6rem;}
+.future .ico {font-size: 1.5rem;}
+.future em {display: block; font-size: 0.6rem; font-style: italic;  color: #ec6102;}
+.future span em {color: #fff;}
+
+#temperature {position: absolute; left: 18px; top: 47px;}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.loading {position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: #45c7c9; text-align: center; z-index: 9;}
+.oneday {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	margin-top: -15px;
+	animation-name: fadeInDown;
+	animation-duration:3s;
+	animation-delay:1.5s;
+	-webkit-animation-name: fadeInDown;
+	-webkit-animation-duration:2.7s;
+	-webkit-animation-delay:1s;
+	animation-fill-mode: both;
+  opacity: 0;
+}
+.loadover {
+	-webkit-transform: translateY(100%);
+	-webkit-transition-property:all;
+	-webkit-transition-duration:2s;
+	-webkit-transition-delay:0;
+	-webkit-transition-timing-function:ease-in;
+}
+.loadover .oneday {opacity: 1;}
