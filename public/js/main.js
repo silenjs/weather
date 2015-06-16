@@ -5,7 +5,7 @@ var iconMap = (function(){
         '501':'rain_m',
         '502':'rain_h',
         '800':'sun',
-        '801':'day_cloudy',
+        '801':'sun_cloudy',
         '802':'cloudy',
         '803':'cloudy',
         '804':'day_cloudy',
@@ -43,9 +43,14 @@ var dayMap = (function () {
 //    .ico_thunder_rain_h:before {content: "\e608";}
 
 +function init(){
-    var script = document.createElement('script');
-    script.src = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Shenzhen,CN&cnt=7&mode=json&lang=zh_cn&callback=parse";
-    document.body.appendChild(script);
+    if(navigator.standalone||!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
+        var script = document.createElement('script');
+        script.src = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Shenzhen,CN&cnt=7&mode=json&lang=zh_cn&callback=parse";
+        document.body.appendChild(script);
+    }else{
+        document.querySelector('.adddesk').style.display="";
+    }
+
 }();
 
 function parse(data){
@@ -62,7 +67,7 @@ function parse(data){
     })
     render(dataArr);
     setTimeout(function(){
-        document.querySelector('#loading').className = 'loading loadover'
+        document.querySelector('.loading').classList.add('loadover');
     },2000)
 }
 
