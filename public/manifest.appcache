@@ -1,0 +1,19 @@
+CACHE MANIFEST
+#2015-06-16:v0.1.0
+
+CACHE:
+#css
+css/style.css
+
+#font
+font/weather.eot
+font/weather.svg
+font/weather.ttf
+font/weather.woff
+
+#js
+js/main.js
+
+
+NETWORK:
+*
