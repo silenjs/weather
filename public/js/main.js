@@ -87,7 +87,7 @@ function renderFuture(data){
         fHtml += '<dl>';
         fHtml += '<dt>'+dayMap(new Date(item.dt*1000).getDay())+'</dt>';
         fHtml += '<dd>'
-        fHtml += '<i class="ico ico_'+iconMap(item.weather[0].id,item.weather[0].icon)+'"></i>';
+        fHtml += '<i class="ico ico_'+iconMap(item.weather[0].id,'d')+'"></i>';
         fHtml += '<em>'+Math.round(item.temp.day-273.15)+'℃</em>';
         fHtml += '<span>'+(new Date(item.dt*1000).getMonth()+1)+'/'+new Date(item.dt*1000).getDate()+'</span>'
         fHtml += '</dd>';
