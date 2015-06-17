@@ -13,6 +13,11 @@ html, body {font: 20px/1.5 "Helvetica Neue", Helvetica, Microsoft Yahei, STHeiTi
     url('/font/weather.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
+.body_sun {background: #6cdcdc;}
+.body_cloudy {background: #45c7c9;}
+.body_rain {background: #25b4b4;}
+.body_night {background: #049f9f;}
+
 .today {padding: 2rem 0 0.5rem; font-size: 0.8rem; color: #cef2f2; text-align: center; letter-spacing: 2px;}
 .today strong {display: block; font-size: 1.5rem; color: #fee241; line-height: 2;}
 
@@ -20,7 +25,7 @@ html, body {font: 20px/1.5 "Helvetica Neue", Helvetica, Microsoft Yahei, STHeiTi
 .ico_sun:before {content: "\e600";}
 .ico_cloudy:before {content: "\e609";}
 .ico_sun_cloudy:before {content: "\e605";}
-.ico_night:before {content: "\e60a";}
+.ico_night:before {content: "\e60c";}
 .ico_night_cloudy:before {content: "\e602";}
 .ico_night_rain:before {content: "\e60b";}
 .ico_rain_s:before {content: "\e601";}
