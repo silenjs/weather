@@ -74,6 +74,7 @@ function renderToday(current,hours){
         })
         return str;
     })(hours).join(' ');
+    document.body.classList.add('body_'+iconMap(current.weather[0].id,current.weather[0].icon).split('_')[0]);
     document.querySelector('.today').innerHTML = 'Shenzhen '+dateStr+'<strong>'+ descStr +' '+ tempStr +'℃</strong>';
     document.querySelector('.today_weather').innerHTML = '<i class="ico ico_'+iconMap(current.weather[0].id,current.weather[0].icon)+'"></i>';
     document.querySelector('.future24').innerHTML=hoursStr;
