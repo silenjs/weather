@@ -35,6 +35,7 @@ function formatHour(hour){
 
 +function init(){
     if(navigator.standalone||!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
+        window.slogan&&(document.querySelector('.oneday').innerHTML=slogan[Math.floor(Math.random()*slogan.length)]);
         document.querySelector('.loading').style.display="";
         var script = document.createElement('script');
         script.src = "http://api.openweathermap.org/data/2.5/forecast?q=Shenzhen,CN&mode=json&lang=zh_cn&callback=parse";
