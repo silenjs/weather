@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--<html lang="en" manifest="manifest.appcache">-->
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -12,12 +13,17 @@
 <title>Weahter</title>
 </head>
 <body>
-<div class="today" id="today">
+<div class="today">
 	<!--Shenzhen / 06.11 2015<strong>晴  28°</strong>-->
 </div>
-<div class="today_weather" id="today_weather">
+<div class="today_weather">
 	<!--<i class="ico ico_sun" id=""></i>-->
 </div>
+<div class="future24">
+	<!--<dl><dt>20</dt><dd><i class="ico ico_sun_cloudy"></i><em>32℃</em></dd></dl><dl><dt>23</dt><dd><i class="ico ico_cloudy"></i><em>32℃</em></dd></dl><dl><dt>02</dt><dd><i class="ico ico_sun_cloudy"></i><em>33℃</em></dd></dl><dl><dt>05</dt><dd><i class="ico ico_rain_m"></i><em>31℃</em></dd></dl><dl><dt>08</dt><dd><i class="ico ico_rain_m"></i><em>29℃</em></dd></dl><dl><dt>11</dt><dd><i class="ico ico_rain_h"></i><em>27℃</em></dd></dl><dl><dt>14</dt><dd><i class="ico ico_rain_m"></i><em>29℃</em></dd></dl>-->
+</div>
+<h3>next 24 hours</h3>
+
 <div class="future">
     <!--<dl><dt>Sun</dt><dd><i class="ico ico_sun"></i><em>28°</em><span><em>11°</em><i class="ico ico_sun"></i><br/>6/12</span></dd></dl>-->
     <!--<dl><dt>Mon</dt><dd><i class="ico ico_day_cloudy"></i><em>28°</em><span><em>11°</em><i class="ico ico_thunder"></i><br/>6/12</span></dd></dl>-->
@@ -27,7 +33,9 @@
     <!--<dl><dt>Thu</dt><dd><i class="ico ico_rain_m"></i><em>28°</em><span><em>11°</em><i class="ico ico_sun"></i><br/>6/12</span></dd></dl>-->
     <!--<dl><dt>Sat</dt><dd><i class="ico ico_rain_h"></i><em>28°</em><span><em>11°</em><i class="ico ico_sun"></i><br/>6/12</span></dd></dl>-->
 </div>
-<div class="loading"><div class="oneday">I can always make you smile.</div></div>
+<h3>next 7 days</h3>
+
+<div class="loading" style="display: none;"><div class="oneday">我所理解的生活就是和自己喜欢的一切在一起.</div></div>
 <div class="adddesk" style="display: none;"><span>请用Safari打开本页面后，添加到手机主屏幕再使用。</span></div>
 
 <script type="text/javascript" src="/js/main.js"></script>
