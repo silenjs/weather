@@ -45,12 +45,12 @@ html, body {font: 20px/1.5 "Helvetica Neue", Helvetica, Microsoft Yahei, STHeiTi
 }
 
 h3 {font-size: 0.6rem; text-align: right; font-weight: normal;font-style: italic;padding: 0 10px;color: #a9dede;}
-.future，.future24 {position: relative; display:-webkit-box; display:box; padding: 30px 0 0; margin: 0 10px;}
+.future, .future24 {position: relative; display:-webkit-box; display:box; padding: 30px 0 0; margin: 0 10px;}
 .future dl, .future24 dl {position: relative; box-flex: 1; -webkit-box-flex:1; height: 110px; text-align: center;}
 .future dt, .future24 dt {font-size: 0.6rem;}
 .future span, .future24 span {position: absolute; left: 0; bottom: 0; width: 100%; font-size: 0.6rem; color: #a9dede;}
 .future .ico, .future24 .ico {font-size: 1.5rem;}
-.future em, .future24 em {display: block; font-size: 0.6rem; font-style: italic;  color: #fff;}
+.future em, .future24 em {display: block; font-size: 0.6rem; font-style: normal;  color: #fff;}
 .future span em, .future span .ico, .future24 span em, .future24 span .ico {color: #a9dede;}
 .future24 dl {height: 85px;}
 
