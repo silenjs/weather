@@ -3,8 +3,9 @@
   smallenn@gmail.com
 */
 *{padding:0; margin:0;}
-html, body {height: 100%; background: #45c7c9;}
+body {height: 100%; background: #45c7c9;}
 html, body {font: 20px/1.5 "Helvetica Neue", Helvetica, Microsoft Yahei, STHeiTi, sans-serif; color:#fff;}
+ul {list-style: none;}
 
 @font-face {font-family: 'weather';
     src: url('/font/weather.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -165,3 +166,19 @@ h3 {font-size: 0.6rem; text-align: right; font-weight: normal;font-style: italic
 .loadover .oneday {opacity: 1;}
 .adddesk {position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #45c7c9; text-align: center; z-index: 10;}
 .adddesk span {position: absolute; left: 0; top: 50%; width: 100%;}
+
+.slidebar {position: fixed; left: 0; top: 0; width: 85%; height: 100%; background: #f2f2f2; z-index: 7;}
+.slidebar_tt {height: 30px;}
+.slidebtn {float: right;}
+.citylist li {position: relative; height: 30px; padding: 0 10px; font-size: 0.9rem; color: #333; line-height: 30px; border-top: 1px #ccc solid;}
+.citylist .ico {margin: 0 10px 0 0; font-size: 1.1rem; color: #333;}
+.citylist span {float: right; margin-right: 30px;}
+.citylist .del {position: absolute; right: 10px;}
+.selectcity {position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #fff; z-index: 8;}
+.hotcity {padding: 0 10px; overflow: hidden;}
+.hotcity li {float: left; width: 25%; line-height: 24px;}
+.selectbox {display:-webkit-box; display:box;}
+.selectbox_option {box-flex: 1; -webkit-box-flex:1; height: 200px; overflow: hidden; overflow-y: auto; }
+.selectbox_option li {color: #333;}
+
+
