@@ -13,7 +13,7 @@
 <title>Weahter</title>
 </head>
 <body>
-<a href="#">add city</a>
+<a href="#"><i class="ico ico_slidebar"></i></a>
 <div class="today">
 	<!--Shenzhen / 06.11 2015<strong>晴  28°</strong>-->
 </div>
@@ -45,8 +45,9 @@
         <li><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
         <li><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
     </ul>
-    <div class="selectcity" style="display:none;">
-        <div class="slidebar_tt"><a href="#" class="slidebtn back">back</a></div>
+    <div class="selectcity">
+        <div class="slidebar_tt"><a href="#" class="slidebtn"><i class="ico ico_back"></i></a></div>
+        <h4>热门城市</h4>
         <ul class="hotcity">
             <li><a href="#">北京</a></li>
             <li><a href="#">北京</a></li>
@@ -59,12 +60,13 @@
             <li><a href="#">北京</a></li>
             <li><a href="#">北京</a></li>
         </ul>
+        <h4>选择城市</h4>
         <div class="selectbox">
             <ul class="selectbox_option">
                 <li>广东省</li>
                 <li>广东省</li>
                 <li>广东省</li>
-                <li>广东省</li>
+                <li class="cur">广东省</li>
                 <li>广东省</li>
                 <li>广东省</li>
                 <li>广东省</li>
@@ -72,10 +74,10 @@
                 <li>广东省</li>
                 <li>广东省</li>
             </ul>
-            <ul class="selectbox_option">
+            <ul class="selectbox_option selectbox_option_r">
                 <li>深圳市</li>
                 <li>深圳市</li>
-                <li>深圳市</li>
+                <li class="cur">深圳市</li>
                 <li>深圳市</li>
                 <li>深圳市</li>
                 <li>深圳市</li>
@@ -85,7 +87,8 @@
                 <li>深圳市</li>
             </ul>
         </div>
-    </div>
+        <a href="#" class="submit">确 定</a>
+    </div><!-- selectcity -->    
 </div><!-- slidebar -->
 
 <div class="loading" style="display: none;"><div class="oneday">我所理解的生活就是和自己喜欢的一切在一起.</div></div>

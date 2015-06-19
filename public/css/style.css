@@ -13,6 +13,7 @@ ul {list-style: none;}
     url('/font/weather.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
     url('/font/weather.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
+a {color: #049f9f; text-decoration: none;}
 
 .body_sun {background: #6cdcdc;}
 .body_cloudy {background: #45c7c9;}
@@ -37,6 +38,9 @@ ul {list-style: none;}
 .ico_thunder_rain_h:before {content: "\e608";}
 .ico_add:before {content: "\e60e";}
 .ico_del:before {content: "\e60d";}
+.ico_back:before {content: "\e60f";}
+.ico_slidebar {position: absolute; left: 10px; top: 0; font-size: 1.5rem;}
+.ico_slidebar:before {content: "\e610";}
 
 .today_weather {margin-bottom: 20px; line-height: 1.1; text-align: center;}
 .today_weather .ico {width: 100%; font-size: 10rem; text-align: center;
@@ -64,33 +68,6 @@ h3 {font-size: 0.6rem; text-align: right; font-weight: normal;font-style: italic
 
 #temperature {position: absolute; left: 18px; top: 47px;}
 
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
 @-webkit-keyframes swing {
   20% {
     -webkit-transform: rotate3d(0, 0, 1, 15deg);
@@ -145,19 +122,7 @@ h3 {font-size: 0.6rem; text-align: right; font-weight: normal;font-style: italic
   }
 }
 .loading {position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: #45c7c9; text-align: center; z-index: 9;}
-.oneday {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  margin-top: -15px;
-/*  animation-name: fadeInDown;
-  animation-duration:3s;
-  animation-delay:1.5s;
-  -webkit-animation-name: fadeInDown;
-  -webkit-animation-duration:2.7s;
-  -webkit-animation-delay:1s;
-  animation-fill-mode: both;*/
-}
+.oneday {position: absolute; top: 50%; width: 100%; margin-top: -15px;}
 .loadover {
   -webkit-transform: translateY(100%);
   -webkit-transition-property:all;
@@ -169,21 +134,38 @@ h3 {font-size: 0.6rem; text-align: right; font-weight: normal;font-style: italic
 .adddesk {position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #45c7c9; text-align: center; z-index: 10;}
 .adddesk span {position: absolute; left: 0; top: 50%; width: 100%;}
 
-.slidebar {position: fixed; left: 0; top: 0; width: 85%; height: 100%; background: #f2f2f2; z-index: 7;}
+.slidebar {position: fixed; left: 0; top: 0; width: 85%; height: 100%; background: #f2f2f2; z-index: 7; -webkit-transform: translateX(-100%);}
 .slidebar_tt {height: 50px; padding: 0 10px; line-height: 50px;}
 .slidebtn {float: right;}
-.ico_add {padding: 0 10px; color: #333;}
+.ico_add, .ico_back {padding: 0 10px; color: #333;}
+h4 {padding-left: 10px; margin: 0 10px 10px; font-size: 0.7rem; color: #333; border-left: 3px #049f9f solid;}
 .citylist li {position: relative; height: 40px; padding: 0 10px; font-size: 0.9rem; color: #666; line-height: 40px; border-top: 1px #e8e8e8 solid;}
 .citylist .cur {background: #fff; color: #333;}
 .citylist .ico {float: left; margin: 0 10px 0 0; font-size: 1.5rem; color: #333;}
 .citylist span {float: right; margin-right: 50px;}
 .citylist .del {position: absolute; right: 5px;}
 .citylist .ico_del {font-size: 0.9rem;}
-.selectcity {position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #fff; z-index: 8;}
-.hotcity {padding: 0 10px; overflow: hidden;}
-.hotcity li {float: left; width: 25%; line-height: 24px;}
-.selectbox {display:-webkit-box; display:box;}
-.selectbox_option {box-flex: 1; -webkit-box-flex:1; height: 200px; overflow: hidden; overflow-y: auto; }
-.selectbox_option li {color: #333;}
+.selectcity {position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #e5f8f8; z-index: 8; -webkit-transform: translateX(-100%);}
+.hotcity {padding: 0 10px; margin-bottom: 30px; overflow: hidden;}
+.hotcity li {float: left; width: 25%; font-size: 0.9rem; line-height: 40px;}
+.selectbox {padding: 0 10px; overflow: hidden;}
+.selectbox_option {float: left; width: 40%; height: 210px; overflow: hidden; overflow-y: auto; }
+.selectbox_option li {color: #999; line-height: 40px; border: 1px #e5f8f8 solid;}
+.selectbox_option .cur {background: #fff; color: #049f9f; text-indent: 20px; border-color: #e8e8e8;}
+.selectbox_option_r {float: right;}
+.submit {display: block; width: 25%; background: #45c7c9; margin: 30px auto 0; color: #fff; line-height: 50px; text-align: center; border-radius: 9px;}
 
-
+.slidebarIn {
+  -webkit-transform: translateX(0);
+  -webkit-transition-property:all;
+  -webkit-transition-duration:2s;
+  -webkit-transition-delay:0;
+  -webkit-transition-timing-function:ease-in;
+}
+.selectcityIn {
+  -webkit-transform: translateX(0);
+  -webkit-transition-property:all;
+  -webkit-transition-duration:2s;
+  -webkit-transition-delay:0;
+  -webkit-transition-timing-function:ease-in;
+}
