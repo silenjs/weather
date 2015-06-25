@@ -33,13 +33,10 @@ function formatHour(hour){
     return hour>10?hour:'0'+hour;
 }
 
-+function() {
-    var map = document.createElement('script');
-    map.src = 'http://webapi.amap.com/maps?v=1.3&key=d06e335a59eabcc27ae1028844b5b8c8&callback=initMap';
-    document.body.appendChild(map);
-}();
+
 
 var suixMap = null;
+var suixCity = '深圳';
 var initMap = function(){
     suixMap = new AMap.Map('mapContainer',{resizeEnable: true});
     getLngLat()
@@ -71,6 +68,11 @@ function getLngLat(){
 function geoSuccess(pos){
     console.log(pos);
     var lnglatXY = new AMap.LngLat(pos.position.lng,pos.position.lat);
+
+    var script = document.createElement('script');
+    script.src = 'http://api.openweathermap.org/data/2.5/forecast?lat='+pos.position.lat+'&lon='+pos.position.lng+'&mode=json&lang=zh_cn&callback=parse';
+    document.body.appendChild(script);
+
     AMap.service(["AMap.Geocoder"], function() {
         MGeocoder = new AMap.Geocoder({
             radius: 1000,
@@ -91,24 +93,28 @@ function geoErr(err){
 
 function formatAddr(res){
     console.log(res);
-    alert(res.regeocode.formattedAddress);
-    alert(res.regeocode.addressComponent.province);
-    alert(res.regeocode.addressComponent.city);
-    alert(res.regeocode.addressComponent.district);
+    suixCity = res.regeocode.addressComponent.city;
+    //alert(res.regeocode.formattedAddress);
+    //alert(res.regeocode.addressComponent.province);
+    //alert(res.regeocode.addressComponent.city);
+    //alert(res.regeocode.addressComponent.district);
 }
 
 +function init(){
     if(navigator.standalone||!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
         window.slogan&&(document.querySelector('.oneday').innerHTML=slogan[Math.floor(Math.random()*slogan.length)]);
         document.querySelector('.loading').style.display="";
-        var script = document.createElement('script');
-        script.src = "http://api.openweathermap.org/data/2.5/forecast?q=Shenzhen,CN&mode=json&lang=zh_cn&callback=parse";
-        document.body.appendChild(script);
+
+        var map = document.createElement('script');
+        map.src = 'http://webapi.amap.com/maps?v=1.3&key=d06e335a59eabcc27ae1028844b5b8c8&callback=initMap';
+        document.body.appendChild(map);
+
     }else{
         document.querySelector('.adddesk').style.display="";
     }
 
 }();
+
 
 function parse(data){
     var current = data.list.filter(function(item){
@@ -139,7 +145,7 @@ function renderToday(current,hours){
         return str;
     })(hours).join(' ');
     document.body.classList.add('body_'+iconMap(current.weather[0].id,current.weather[0].icon).split('_')[0]);
-    document.querySelector('.today').innerHTML = 'Shenzhen '+dateStr+'<strong>'+ descStr +' '+ tempStr +'℃</strong>';
+    document.querySelector('.today').innerHTML = suixCity+' '+dateStr+'<strong>'+ descStr +' '+ tempStr +'℃</strong>';
     document.querySelector('.today_weather').innerHTML = '<i class="ico ico_'+iconMap(current.weather[0].id,current.weather[0].icon)+'"></i>';
     document.querySelector('.future24').innerHTML=hoursStr;
 
