@@ -36,7 +36,8 @@ function formatHour(hour){
 
 
 var suixMap = null;
-var suixCity = '深圳';
+var suixCity = '深圳市';
+var citylist = ['北京市','上海市','广州市','深圳市','杭州市','东莞市'];
 var initMap = function(){
     suixMap = new AMap.Map('mapContainer',{resizeEnable: true});
     getLngLat()
@@ -166,3 +167,27 @@ function renderFuture(data){
     })
     document.querySelector('.future').innerHTML = fHtml;
 }
+
+$(document).ready(function(){
+    var citylistFragment = document.createDocumentFragment();
+    citylist.forEach(function(item,index){
+        var liStr = '</i>'+item+'<a href="javascript:void(0);" class="del"><i class="ico ico_del"></i></a>'
+        var li = $('<li></li>').html(liStr)[0];
+        citylistFragment.appendChild(li);
+    })
+    $('#citylist').append(citylistFragment);
+    /*
+    *  <li class="cur"><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
+     <li><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
+     <li><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
+     <li><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
+     <li><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
+    * */
+
+    $('#slidebarTrigger').on('click',function(){
+        $('#slidebar').toggleClass('slidebarIn');
+    })
+    $('#slidebarCityTrigger').on('click',function(){
+        $('#slidebarCity').toggleClass('selectcityIn');
+    })
+})
