@@ -102,17 +102,24 @@ function formatAddr(res){
 }
 
 +function init(){
-    if(navigator.standalone||!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
-        window.slogan&&(document.querySelector('.oneday').innerHTML=slogan[Math.floor(Math.random()*slogan.length)]);
-        document.querySelector('.loading').style.display="";
+    window.slogan&&(document.querySelector('.oneday').innerHTML=slogan[Math.floor(Math.random()*slogan.length)]);
+    document.querySelector('.loading').style.display="";
 
-        var map = document.createElement('script');
-        map.src = 'http://webapi.amap.com/maps?v=1.3&key=d06e335a59eabcc27ae1028844b5b8c8&callback=initMap';
-        document.body.appendChild(map);
+    var map = document.createElement('script');
+    map.src = 'http://webapi.amap.com/maps?v=1.3&key=d06e335a59eabcc27ae1028844b5b8c8&callback=initMap';
+    document.body.appendChild(map);
 
-    }else{
-        document.querySelector('.adddesk').style.display="";
-    }
+    //if(navigator.standalone||!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
+    //    window.slogan&&(document.querySelector('.oneday').innerHTML=slogan[Math.floor(Math.random()*slogan.length)]);
+    //    document.querySelector('.loading').style.display="";
+    //
+    //    var map = document.createElement('script');
+    //    map.src = 'http://webapi.amap.com/maps?v=1.3&key=d06e335a59eabcc27ae1028844b5b8c8&callback=initMap';
+    //    document.body.appendChild(map);
+    //
+    //}else{
+    //    document.querySelector('.adddesk').style.display="";
+    //}
 
 }();
 
@@ -184,10 +191,18 @@ $(document).ready(function(){
      <li><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
     * */
 
-    $('#slidebarTrigger').on('click',function(){
+    $('#slidebarTrigger').on('click',function(evt){
+        evt.stopPropagation();
         $('#slidebar').toggleClass('slidebarIn');
     })
     $('#slidebarCityTrigger').on('click',function(){
         $('#slidebarCity').toggleClass('selectcityIn');
+    })
+    $(document).on('click',function(evt){
+        $('#slidebar').removeClass('slidebarIn');
+        $('#slidebarCity').removeClass('selectcityIn');
+    })
+    $('#slidebar').on('click',function(evt){
+        evt.stopPropagation();
     })
 })
