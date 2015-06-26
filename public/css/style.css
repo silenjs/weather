@@ -39,8 +39,9 @@ a {color: #049f9f; text-decoration: none;}
 .ico_add:before {content: "\e60e";}
 .ico_del:before {content: "\e60d";}
 .ico_back:before {content: "\e60f";}
-.ico_slidebar {position: absolute; left: 10px; top: 0; font-size: 1.5rem;}
+.ico_slidebar {font-size: 1.5rem;}
 .ico_slidebar:before {content: "\e610";}
+#slidebarTrigger {position: absolute; left: 10px; top: 30px;}
 
 .today_weather {margin-bottom: 20px; line-height: 1.1; text-align: center;}
 .today_weather .ico {width: 100%; font-size: 10rem; text-align: center;
@@ -134,17 +135,15 @@ h3 {font-size: 0.6rem; text-align: right; font-weight: normal;font-style: italic
 .adddesk {position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #45c7c9; text-align: center; z-index: 10;}
 .adddesk span {position: absolute; left: 0; top: 50%; width: 100%;}
 
-.slidebar {position: fixed; left: 0; top: 0; width: 85%; height: 100%; background: #f2f2f2; z-index: 7; -webkit-transform: translateX(-100%);}
+.slidebar {position: fixed; left: 0; top: 0; width: 85%; height: 100%; background: #f2f2f2; z-index: 7; -webkit-transform: translateX(-100%); overflow: hidden;}
 .slidebar_tt {height: 50px; padding: 0 10px; line-height: 50px;}
 .slidebtn {float: right;}
-.ico_add, .ico_back {padding: 0 10px; color: #333;}
+.ico_add, .ico_back {padding: 0 4px 0 10px; color: #333;}
 h4 {padding-left: 10px; margin: 30px 10px 10px; font-size: 0.7rem; color: #333; border-left: 3px #049f9f solid;}
 .citylist li {position: relative; height: 40px; padding: 0 10px; font-size: 0.9rem; color: #666; line-height: 40px; border-top: 1px #e8e8e8 solid; cursor: pointer;}
 .citylist .cur {background: #fff; color: #333;}
 .citylist .ico {float: left; margin: 0 10px 0 0; font-size: 1.5rem; color: #333;}
-.citylist span {float: right; margin-right: 50px;}
-.citylist .del {position: absolute; right: 5px;}
-.citylist .ico_del {font-size: 0.9rem;}
+.citylist .ico_del {position: absolute; right: 5px; font-size: 0.9rem; cursor: pointer;}
 .selectcity {position: absolute; left: 0; top: 50px; width: 100%; height: 100%; background: #e5f8f8; z-index: 8; -webkit-transform: translateX(-100%);}
 .hotcity {padding: 0 10px; overflow: hidden;}
 .hotcity li {float: left; width: 25%; font-size: 0.9rem; line-height: 40px;}
@@ -158,14 +157,14 @@ h4 {padding-left: 10px; margin: 30px 10px 10px; font-size: 0.7rem; color: #333; 
 .slidebarIn {
   -webkit-transform: translateX(0);
   -webkit-transition-property:all;
-  -webkit-transition-duration:2s;
+  -webkit-transition-duration:1s;
   -webkit-transition-delay:0;
   -webkit-transition-timing-function:ease-in;
 }
 .selectcityIn {
   -webkit-transform: translateX(0);
   -webkit-transition-property:all;
-  -webkit-transition-duration:2s;
+  -webkit-transition-duration:1s;
   -webkit-transition-delay:0;
   -webkit-transition-timing-function:ease-in;
 }
