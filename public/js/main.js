@@ -183,6 +183,12 @@ $(document).ready(function(){
         citylistFragment.appendChild(li);
     })
     $('#citylist').append(citylistFragment);
+    $('#citylist').on('click',function(evt){
+        $(this).children().forEach(function(item,index){
+            $(item).removeClass('cur');
+        })
+        $(evt.target).addClass('cur');
+    })
     /*
     *  <li class="cur"><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
      <li><i class="ico ico_sun"></i>深圳市<span>28°</span><a href="#" class="del"><i class="ico ico_del"></i></a></li>
