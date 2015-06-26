@@ -23,7 +23,7 @@ a {color: #049f9f; text-decoration: none;}
 .today {padding: 2rem 0 0.5rem; font-size: 0.8rem; color: #cef2f2; text-align: center; letter-spacing: 2px;}
 .today strong {display: block; font-size: 1.5rem; color: #fee241; line-height: 2;}
 
-.ico {display: inline-block; color: #fff; font-style: normal; font-family: "weather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+.ico {display: inline-block; color: #fff; font-style: normal; font-family: "weather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
 .ico_sun:before {content: "\e600";}
 .ico_cloudy:before {content: "\e609";}
 .ico_sun_cloudy:before {content: "\e605";}
@@ -144,7 +144,7 @@ h4 {padding-left: 10px; margin: 30px 10px 10px; font-size: 0.7rem; color: #333; 
 .citylist .cur {background: #fff; color: #333;}
 .citylist .ico {float: left; margin: 0 10px 0 0; font-size: 1.5rem; color: #333;}
 .citylist .ico_del {position: absolute; right: 5px; font-size: 0.9rem; cursor: pointer;}
-.selectcity {position: absolute; left: 0; top: 50px; width: 100%; height: 100%; background: #e5f8f8; z-index: 8; -webkit-transform: translateX(-100%);}
+.selectcity {position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #e5f8f8; z-index: 8; -webkit-transform: translateX(-100%);}
 .hotcity {padding: 0 10px; overflow: hidden;}
 .hotcity li {float: left; width: 25%; font-size: 0.9rem; line-height: 40px;}
 .selectbox {padding: 0 10px; overflow: hidden;}
