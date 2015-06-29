@@ -32,7 +32,9 @@ var dayMap = (function () {
 function formatHour(hour){
     return hour>10?hour:'0'+hour;
 }
-
+$(function(){
+    FastClick.attach(document.body);
+})
 
 
 var suixMap = null;
@@ -201,7 +203,7 @@ $(document).ready(function(){
         evt.stopPropagation();
         $('#slidebar').toggleClass('slidebarIn');
     })
-    $('#slidebarCityTrigger').on('click',function(){
+    $('.slidebar_tt').on('click',function(){
         $('#slidebarCity').toggleClass('selectcityIn');
     })
     $(document).on('click',function(evt){

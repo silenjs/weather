@@ -37,11 +37,15 @@
 <h3>next 7 days</h3>
 
 <div class="slidebar" id="slidebar">
-    <div class="slidebar_tt" id="slidebarCityTrigger"><a href="javascript:void(0);" class="slidebtn"><i class="ico ico_add"></i></a></div>
+    <div class="slidebar_tt" id="cityListTrigger">
+        <a href="javascript:void(0);" class="slidebtn"><i class="ico ico_add"></i></a>
+    </div>
     <ul class="citylist" id="citylist">
     </ul>
     <div class="selectcity" id="slidebarCity">
-        <!--<div class="slidebar_tt"><a href="#" class="slidebtn"><i class="ico ico_back"></i></a></div>-->
+        <div class="slidebar_tt" id="citySelTrigger">
+            <a href="javascript:void(0);" class="slidebtn"><i class="ico ico_back"></i></a>
+        </div>
         <h4>热门城市</h4>
         <ul class="hotcity" id="hotcity">
             <li><a href="javascript:void(0);">北京</a></li>
@@ -87,6 +91,7 @@
 <div id="mapContainer"></div>
 <script type="text/javascript" src="/plugins/slogan.js"></script>
 <script type="text/javascript" src="/js/zepto.min.js"></script>
+<script type="text/javascript" src="/js/fastclick.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
