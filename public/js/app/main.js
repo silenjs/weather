@@ -5,8 +5,6 @@ define(function(require,exports,module){
         fc.attach(document.body);
     });
 
-    var suixCity = '深圳';
-    var citylist = ['北京市','上海市','广州市','深圳市','杭州市','东莞市'];
 
 
     var iconMap = (function(){
@@ -61,6 +59,7 @@ define(function(require,exports,module){
                     $(item).removeClass('cur');
                 })
                 $(evt.target).addClass('cur');
+
             })
             $('#slidebarTrigger').on('click',function(evt){
                 evt.stopPropagation();
