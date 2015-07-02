@@ -1,12 +1,24 @@
 define(function(require,exports,module){
-    var suixMap=null,$=require('jquery');
+    var $=require('jquery');
+    var suixMap=null,mContainer,mConfig;
+    var initMapHander = function(type,handler){
+        if(AMap){
+            suixMap = new AMap.Map(mContainer,mConfig);
+        }else{
+            setTimeout(function(){
+                initMapHander.apply(null,arguments)
+            },500)
+            return;
+        }
+        handler(suixMap);
+    }
     var map = {
         initMap:function(url,mapContainer,mapConfig,handler){
+            mContainer=mapContainer,mConfig=mapConfig;
             $.getScript(url).done(function () {
-                suixMap = new AMap.Map(mapContainer,mapConfig);
-                handler(suixMap);
+                initMapHander('done',handler);
             }).fail(function(){
-                handler(suixMap);
+                initMapHander('fail',handler)
             });
         },
         getCurrentPosition:function(callback){

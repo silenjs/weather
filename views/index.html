@@ -68,11 +68,13 @@
     </div><!-- selectcity -->    
 </div><!-- slidebar -->
 
-<div class="loading" style="display: none;"><div class="oneday">随心，随性，随行！</div></div>
+<div class="loading"><div class="oneday">随心，随性，随行！</div></div>
 <div class="adddesk" style="display: none;"><span>请用Safari打开本页面后，添加到手机主屏幕再使用。</span></div>
 <div id="mapContainer"></div>
+<script type="text/javascript" src="plugins/slogan.js"></script>
 <script type="text/javascript" src="js/lib/seajs/3.0.0/sea.js"></script>
 <script type="text/javascript">
+    window.slogan&&(document.querySelector('.oneday').innerHTML=slogan[Math.floor(Math.random()*slogan.length)]);
     seajs.config({
         base:"./js/",
         alias:{

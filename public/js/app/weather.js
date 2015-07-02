@@ -9,16 +9,7 @@ define(function(require,exports,module){
         url += '&mode=json&lang=zh_cn';
         return url;
     }
-    function forecastFun(config,callback){
-        var cfg = config,url=packUrl(config),cb=callback;
-        return function(){
-            $.getJSON(url).done(function(data){
-                cb(cfg.type,data);
-            }).fail(function(){
-                cb(cfg.type,null);
-            })
-        }
-    }
+
     var weather ={
         getForecast: function(type,config,callback){
             //$.when(

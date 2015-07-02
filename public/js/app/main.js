@@ -1,5 +1,5 @@
 define(function(require,exports,module){
-    var $=require('jquery'),fc=require('fastclick'),slogan=require('app/slogan'),util=require('app/util');
+    var $=require('jquery'),fc=require('fastclick'),util=require('app/util');
 
     $(function(){
         fc.attach(document.body);
@@ -41,10 +41,8 @@ define(function(require,exports,module){
     })();
 
     var initPage = function(){
-        if(navigator.standalone||!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
-            document.querySelector('.oneday').innerHTML=slogan.list[Math.floor(Math.random()*slogan.list.length)];
-            document.querySelector('.loading').style.display="";
-        }else{
+        if(!navigator.standalone&&navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
+            document.querySelector('.loading').style.display="none";
             document.querySelector('.adddesk').style.display="";
         }
     }
@@ -84,7 +82,7 @@ define(function(require,exports,module){
     var renderToday = function(data){
         var current = data.list.filter(function(item){
             return Date.now()>=item.dt*1000&&Date.now()-item.dt*1000<1000*60*60*3;
-        })[0];
+        })[0]||data.list[0];
         var hours = data.list.filter(function(item){
             return item.dt*1000>Date.now()&&item.dt*1000-Date.now()<1000*60*60*3*7;
         })
