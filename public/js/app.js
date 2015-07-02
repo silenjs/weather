@@ -8,14 +8,12 @@ define(function(require){
     var main=require('app/main'),map=require('app/map'),weather=require('app/weather');
 
 
-
     var initMapHandler = function(smap){
         suixMap = smap;
         map.getCurrentPosition(getPosHandler)
     }
     var getPosHandler = function(status,pos){
         var forecastCfig = {
-            type:'hourly',
             method:'city',
             data:'ShenZhen',
         }
@@ -24,19 +22,14 @@ define(function(require){
             forecastCfig.data = {lat:pos.position.lat,lng:pos.position.lng};
         }
         getForecast(forecastCfig);
-        //(forecastCfig.type='hourly')&&getForecast(forecastCfig);
-        //(forecastCfig.type='daily')&&getForecast(forecastCfig);
     }
     var getForecast = function(cfig){
-        //cfig.type='hourly';
-        weather.getForecast(cfig,function(hourly,daily){
+        weather.getForecast('hourly',cfig,function(hourly,daily){
             main.render.apply(null,arguments);
-        });
-        //cfig.type='daily';
-        //var b = weather.getForecast(cfig,function(type,data){
-        //    main.render(type,data);
-        //})
-        //b();
+        })();
+        weather.getForecast('daily',cfig,function(hourly,daily){
+            main.render.apply(null,arguments);
+        })();
     };
 
     ;+function(){

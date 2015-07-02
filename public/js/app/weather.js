@@ -20,19 +20,22 @@ define(function(require,exports,module){
         }
     }
     var weather ={
-        getForecast: function(config,callback){
-            $.when(
-                $.getJSON(packUrl(config,'hourly')),
-                $.getJSON(packUrl(config,'daily'))
-            ).done(function(hourly,daily){
-                callback(hourly,daily);
-            })
-            //config.type='hourly';
-            //var a = forecastFun(config,callback);
-            //a();
-            //config.type='daily';
-            //var b = forecastFun(config,callback);
-            //b();
+        getForecast: function(type,config,callback){
+            //$.when(
+            //    $.getJSON(packUrl(config,'hourly')),
+            //    $.getJSON(packUrl(config,'daily'))
+            //).done(function(hourly,daily){
+            //    callback(hourly,daily);
+            //})
+
+            var cfg = config,url=packUrl(config,type),cb=callback;
+            return function(){
+                $.getJSON(url).done(function(data){
+                    cb(type,data);
+                }).fail(function(){
+                    cb(type,null);
+                })
+            }
         },
         hourlyForecast:function(type,callback){
             //$.getJSON(wUrl)

@@ -6,6 +6,9 @@ define(function(require,exports,module){
     });
 
     var suixCity = '深圳';
+    var citylist = ['北京市','上海市','广州市','深圳市','杭州市','东莞市'];
+
+
     var iconMap = (function(){
         var map={
             // 500 小雨 501 中雨 502 大雨
@@ -36,6 +39,47 @@ define(function(require,exports,module){
             return map[index];
         };
     })();
+
+    var initPage = function(){
+        if(navigator.standalone||!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
+            document.querySelector('.oneday').innerHTML=slogan.list[Math.floor(Math.random()*slogan.list.length)];
+            document.querySelector('.loading').style.display="";
+        }else{
+            document.querySelector('.adddesk').style.display="";
+        }
+    }
+
+    var attachEvent = function(){
+        $(document).ready(function(){
+            var citylistFragment = document.createDocumentFragment();
+            citylist.forEach(function(item){
+                var liStr = '</i>'+item+'<a href="javascript:void(0);" class="del"><i class="ico ico_del"></i></a>'
+                var li = $('<li></li>').html(liStr)[0];
+                citylistFragment.appendChild(li);
+            })
+            $('#citylist').append(citylistFragment);
+            $('#citylist').on('click',function(evt){
+                $(this).children().each(function(index,item){
+                    $(item).removeClass('cur');
+                })
+                $(evt.target).addClass('cur');
+            })
+            $('#slidebarTrigger').on('click',function(evt){
+                evt.stopPropagation();
+                $('#slidebar').toggleClass('slidebarIn');
+            })
+            $('.slidebar_tt').on('click',function(){
+                $('#slidebarCity').toggleClass('selectcityIn');
+            })
+            $(document).on('click',function(evt){
+                $('#slidebar').removeClass('slidebarIn');
+                $('#slidebarCity').removeClass('selectcityIn');
+            })
+            $('#slidebar').on('click',function(evt){
+                evt.stopPropagation();
+            })
+        })
+    }
 
     var renderToday = function(data){
         var current = data.list.filter(function(item){
@@ -79,17 +123,11 @@ define(function(require,exports,module){
     }
     var main = {
         init:function(){
-            if(navigator.standalone||!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
-                document.querySelector('.oneday').innerHTML=slogan.list[Math.floor(Math.random()*slogan.list.length)];
-                document.querySelector('.loading').style.display="";
-            }else{
-                document.querySelector('.adddesk').style.display="";
-            }
+            initPage();
+            attachEvent();
         },
-
-        render:function(hourly,daily){
-            renderToday(hourly[0]);
-            renderFuture(daily[0]);
+        render:function(type,data){
+            (type=='hourly'?renderToday:renderFuture)(data);
         }
     }
     module.exports = main;
